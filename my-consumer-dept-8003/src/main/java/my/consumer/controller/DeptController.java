@@ -41,6 +41,7 @@ public class DeptController {
 
     @GetMapping("get/host")
     public String getHost() {
+        System.out.println("获取地址");
         return deptService.getHost();
     }
 }

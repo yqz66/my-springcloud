@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@MapperScan(value = "my.provider.dao")
+@MapperScan(basePackages = "my.provider.dao")
 @EnableEurekaClient //服务注册
 //@EnableDiscoveryClient
 public class MyProviderDept8001Application {

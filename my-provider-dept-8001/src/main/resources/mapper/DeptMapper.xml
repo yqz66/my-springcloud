@@ -8,7 +8,7 @@
         INSERT INTO dept(dept_id,dept_name)
     </insert>
 
-    <select id="queryAllDept" resultType="Dept">
+    <select id="queryAllDept" resultType="my.common.entity.Dept">
         SELECT * FROM dept
     </select>
     <select id="getDeptById" parameterType="java.lang.String" resultType="Dept">
