@@ -22,7 +22,7 @@ public class DeptController {
 
     @GetMapping("get/{id}")
     public Dept getDept(@PathVariable("id") Integer id) {
-        System.out.println("进入消费者 get/{id}");
+        System.out.println("进入ssaf消费者 get/{id}");
         //return restTemplate.getForObject(PROVIDER_DEPT_8002_URL + "dept/get/" + id, Dept.class);
         deptService.getDept(id);
         return deptService.getDept(id);
