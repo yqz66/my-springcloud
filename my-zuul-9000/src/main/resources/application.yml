@@ -1,0 +1,48 @@
+server:
+  port: 9000
+  tomcat:
+    uri-encoding: utf-8
+spring:
+  application:
+    name: zuul
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+zuul:
+  routes:
+    consumer:
+      id: consumer
+      path: /consumer/** #拦截路径，
+      serviceId: consumer-dept
+  max:
+    host:
+      connections: 500
+  host:
+    socket-timeout-millis: 600000  # 单位（微秒）链接超时配置 10 秒
+    connect-timeout-millis: 600000
+ribbon:
+  ReadTimeout: 200000 #读取超时配置
+  ConnectTimeout: 200000 #链接超时配置
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+info:
+  app.name: my-spring-cloud
+  company.name: 时光
+  build.artifactId: ${project.artifactId} #通过插件从 maven 配置中获取值(测试获取失败)
+  build.version: $project.version$
+#      注意：如果 url 为： http://localhost:9000/consumer/list  会出现404错误。
+#     要写为： http://localhost:9000/dept/consumer/list    前面的 consumer 指的是拦截路径。释义：拦截带有 dept，交给 consumer-dept 服务去处理 dept后面的路径才是/consumer/list serviceId 的请求地址
+#      stripPrefix: false
+#users:
+#  ribbon:
+#    listOfServers: http://localhost:8003,http://localhost:8002,http://localhost:8001,
+#zuul:
+#  routes: #拦截设置
+#    consumer: # 自定义描述
+#      path: /consumer/** #拦截路径
+#      serviceId: consumer-dept #指定转发的 serviceId
+#      url: https://www.baidu.com/ #可以转发到任何网址 列：
+#ribbon:
+#  eureka:
+#    enabled: false # 禁用Eureka

@@ -1,0 +1,42 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: consumer-dept
+#  当在 Eureka 中点击 Service Name 时返回的json串信息 ， 属性信息可以自定义配置
+info:
+  app.name: my-spring-cloud
+  company.name: 时光
+  build.artifactId: ${project.artifactId} #通过插件从 maven 配置中获取值(测试获取失败)
+  build.version: $project.version$
+eureka:
+  instance:
+    instance-id: 消费者 # Eureka 实例名称
+    ip-address: true # 是否在注册中心显示 ip 地址:
+feign:
+  name: dept-provider # 配置Feign 客户端的 name
+  path: dept #配置请求路径前缀
+  hystrix:
+    enabled: true # Feign 整合 Hystrix
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 120000 # 设置 hystrix
+# 设置hystrix 超时 =   Ribbon超时 * N ( N 代表 Ribbon 数量)
+#因为 部署多个微服务时 ribbon 有重试机制，如果连接不上，会重试。重试时防止触发回退
+ribbon:
+    ReadTimeout: 60000
+    ConnectTimeout: 60000
+myRibbon:
+  ribbon:
+      NFLoadBalancerRuleClassName: my.consumer.config.MyIRule
+#使用自定义负载均衡规则
+#    NFLoadBalancerClassName：应实施ILoadBalancer
+#    NFLoadBalancerRuleClassName：应实施IRule
+#    NFLoadBalancerPingClassName：应实施IPing
+#    NIWSServerListClassName：应实施ServerList
+#    NIWSServerListFilterClassName应实施ServerListFilter
+

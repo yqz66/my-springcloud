@@ -1,0 +1,9 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka-service
+eureka:
+  client:
+#    register-with-eureka: false # 是否向别的Eureka注册
+    fetch-registry: false #自己是注册中心，并不需要去检索服务
