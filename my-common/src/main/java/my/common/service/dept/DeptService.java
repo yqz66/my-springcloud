@@ -1,8 +1,8 @@
-package my.common.service;
+package my.common.service.dept;
 
 import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheKey;
 import my.common.entity.Dept;
-import my.common.service.fallback.DeptServiceFallbackImpl;
+import my.common.service.dept.fallback.DeptServiceFallbackImpl;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +18,7 @@ import java.util.List;
 //@FeignClient(name = "${feign.name}", path = "${feign.path}",
 //        /*fallback = DeptCallbackServiceImpl.class*/
 //        fallbackFactory = DeptServiceFallbackImpl.class)
-@FeignClient(name = "${feign.name}", path = "${feign.path}",
+@FeignClient(name = "${feign.dept.service.name}", path = "${feign.dept.service.path}",
         /*fallback = DeptCallbackServiceImpl.class*/
         fallbackFactory = DeptServiceFallbackImpl.class)
 public interface DeptService {

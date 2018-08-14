@@ -1,7 +1,7 @@
 package my.consumer.controller;
 
 import my.common.entity.Dept;
-import my.common.service.DeptService;
+import my.common.service.dept.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

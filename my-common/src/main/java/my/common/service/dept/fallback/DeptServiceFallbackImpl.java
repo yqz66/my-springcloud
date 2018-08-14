@@ -1,8 +1,8 @@
-package my.common.service.fallback;
+package my.common.service.dept.fallback;
 
 import feign.hystrix.FallbackFactory;
 import my.common.entity.Dept;
-import my.common.service.DeptService;
+import my.common.service.dept.DeptService;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;

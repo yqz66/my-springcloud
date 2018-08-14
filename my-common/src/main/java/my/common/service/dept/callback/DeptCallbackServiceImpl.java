@@ -1,7 +1,7 @@
-package my.common.service.callback;
+package my.common.service.dept.callback;
 
 import my.common.entity.Dept;
-import my.common.service.DeptService;
+import my.common.service.dept.DeptService;
 
 import java.util.LinkedList;
 import java.util.List;
