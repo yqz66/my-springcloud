@@ -19,13 +19,14 @@ public class MyIRule extends AbstractLoadBalancerRule {
         List<Server> allServers = loadBalancer.getAllServers();
         Random random = new Random();
         int i = random.nextInt(10);
+        System.out.println("自定义负载均衡");
         // i 小于 3 使用第一个 否则使用第二个 (这里一共起了两个服务，可以根据自己的需求，IP 端口 之类的自己实现负载均衡)
         if (i < 3) {
             return allServers.get(0);
         }
         return allServers.get(1);
-        //for (Server server : allServers) {
-        //    System.out.println(server.getHostPort());
+        //for (Server client : allServers) {
+        //    System.out.println(client.getHostPort());
         //}
     }
 

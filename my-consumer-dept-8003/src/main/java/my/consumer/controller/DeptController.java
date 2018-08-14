@@ -1,13 +1,14 @@
 package my.consumer.controller;
 
 import my.common.entity.Dept;
-import my.consumer.service.DeptService;
+import my.common.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -40,7 +41,8 @@ public class DeptController {
     }
 
     @GetMapping("get/host")
-    public String getHost() {
+    public String getHost(HttpServletRequest request) {
+        request.getCookies();
         System.out.println("获取地址");
         return deptService.getHost();
     }

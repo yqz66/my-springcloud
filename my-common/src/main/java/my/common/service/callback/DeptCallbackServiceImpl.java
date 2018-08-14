@@ -1,8 +1,7 @@
-package my.consumer.service.callback;
+package my.common.service.callback;
 
 import my.common.entity.Dept;
-import my.consumer.service.DeptService;
-import org.springframework.stereotype.Service;
+import my.common.service.DeptService;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
 /**
  * hystrix 回调类
  */
-@Service
+//@Service
 //@Component
 public class DeptCallbackServiceImpl implements DeptService {
 

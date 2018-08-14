@@ -7,12 +7,15 @@ spring:
 info:
   app.name: my-spring-cloud
   company.name: 时光
-  build.artifactId: ${project.artifactId} #通过插件从 maven 配置中获取值(测试获取失败)
+  build.artifactId: ${project.artifactId} #通过插件从 maven 配置中获取值
   build.version: $project.version$
 eureka:
   instance:
     instance-id: 消费者 # Eureka 实例名称
     ip-address: true # 是否在注册中心显示 ip 地址:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 feign:
   name: dept-provider # 配置Feign 客户端的 name
   path: dept #配置请求路径前缀

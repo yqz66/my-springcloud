@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      name: my-config-client #需要获取的文件名, 不需要带后缀
+      profile: dev #需要的版本环境
+      label: master #分支名称
+      uri: http://localhost:8888
+      #本微服务启动后先去找8888 配置中心，通过Spring Cloud Config 获取GitHub地址

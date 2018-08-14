@@ -15,7 +15,8 @@
         <module>my-consumer-dept-8003</module>
         <module>my-provider-dept-8001</module>
         <module>my-zuul-9000</module>
-        <module>my-config-client</module>
+        <module>my-config-client-8889</module>
+        <module>my-config-server-8888</module>
     </modules>
 
     <name>my-springcloud</name>
