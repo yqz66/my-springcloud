@@ -2,7 +2,9 @@ package my.consumer.controller;
 
 import my.common.entity.Dept;
 import my.common.service.dept.DeptService;
+import my.consumer.aspect.ControllerLog;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +32,8 @@ public class DeptController {
     }
 
     @GetMapping("list")
-    public List<Dept> queryAllDept() {
+    @ControllerLog(message = "获取 dept 列表")
+    public List<Dept> queryAllDept(String listName) {
         System.out.println("进入消费者 list");
         /*try {
             Thread.sleep(10000);
@@ -40,7 +43,8 @@ public class DeptController {
         return deptService.queryAllDept();
     }
 
-    @GetMapping("get/host")
+    @ControllerLog(message = "用户获取地址")
+    @GetMapping(value = "get/host", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String getHost(HttpServletRequest request) {
         request.getCookies();
         System.out.println("获取地址");

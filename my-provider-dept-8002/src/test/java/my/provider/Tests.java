@@ -1,18 +1,31 @@
 package my.provider;
 
-import java.util.LinkedList;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * Created by JingCai-Java on 2018/7/23.
  */
 public class Tests {
+    public void test (String strings){
+        System.out.println(strings);
+    }
     public static void main(String[] args) {
-        LinkedList<String> list = new LinkedList<>();
-        list.add(null);
-        list.add(null);
-        for (String s : list ){
-            System.out.println(s);
-        }
+        try {
+            Method test = Tests.class.getMethod("test", String.class);
+            try {
+                test.invoke(Tests.class.newInstance(), "执行");
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            }
 
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
     }
 }
