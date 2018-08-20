@@ -5,10 +5,7 @@ import my.common.service.dept.DeptService;
 import my.consumer.aspect.ControllerLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -24,6 +21,7 @@ public class DeptController {
     private DeptService deptService;
 
     @GetMapping("get/{id}")
+    @ControllerLog(message = "根据 id 查询 dept ")
     public Dept getDept(@PathVariable("id") Integer id) {
         System.out.println("进入ssaf消费者 get/{id}");
         //return restTemplate.getForObject(PROVIDER_DEPT_8002_URL + "dept/get/" + id, Dept.class);
@@ -43,11 +41,14 @@ public class DeptController {
         return deptService.queryAllDept();
     }
 
-    @ControllerLog(message = "用户获取地址")
+    @ControllerLog(message = "获取地址")
     @GetMapping(value = "get/host", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public String getHost(HttpServletRequest request) {
         request.getCookies();
         System.out.println("获取地址");
         return deptService.getHost();
     }
+
+
+
 }

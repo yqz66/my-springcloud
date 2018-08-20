@@ -21,11 +21,7 @@ zuul:
   host:
     socket-timeout-millis: 600000  # 单位（微秒）链接超时配置 10 秒
     connect-timeout-millis: 600000
-ribbon:
-  ReadTimeout: 200000 #读取超时配置
-  ConnectTimeout: 200000 #链接超时配置
-  MaxAutoRetries: 0
-  MaxAutoRetriesNextServer: 1
+  ignored-services: "*" #忽略所有以微服务名称的路径访问 所有微服务访问必须配置 routes 才能通过网关访问
 info:
   app.name: my-spring-cloud
   company.name: 时光
