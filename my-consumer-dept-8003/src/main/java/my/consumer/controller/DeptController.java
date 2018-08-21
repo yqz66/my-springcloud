@@ -42,7 +42,7 @@ public class DeptController {
     }
 
     @ControllerLog(message = "获取地址")
-    @GetMapping(value = "get/host", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "get/host", produces = MediaType.TEXT_PLAIN_VALUE)
     public String getHost(HttpServletRequest request) {
         request.getCookies();
         System.out.println("获取地址");

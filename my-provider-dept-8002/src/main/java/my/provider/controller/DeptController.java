@@ -26,11 +26,12 @@ public class DeptController {
     @GetMapping(value = "list")
     public List<Dept> queryAllDept(HttpServletRequest request) {
         System.out.println("请求地址：" + request.getRequestURL().toString());
-        try {
+       /* try {
+       // 测试 Hystrix 熔断
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         return deptService.queryAllDept();
     }
 

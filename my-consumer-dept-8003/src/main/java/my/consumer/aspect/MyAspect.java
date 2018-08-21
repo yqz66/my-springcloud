@@ -57,7 +57,7 @@ public class MyAspect {
     // 后置通知 在拦截方法执行之后执行一段逻辑   returning 获取返回值（返回值和参数类型必须一致）
     @AfterReturning(value = "systemControllerLog()", returning = "result")
     public void doAfter(JoinPoint joinPoint, List<Dept> result) {
-        System.out.println("进入后置处理，返回值是: " + result);
+        System.out.println("进入后置处理，list 大小: " + result.size() + "返回值是: " + result.get(result.size() - 1).getDeptName());
     }
 
     //异常时处理

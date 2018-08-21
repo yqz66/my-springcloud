@@ -29,12 +29,12 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 2000 # 设置 hystrix 链接超时
+            timeoutInMilliseconds: 5000 # 设置 hystrix 链接超时
 # 设置hystrix 超时 =   Ribbon超时 * N ( N 代表 Ribbon 数量)
 #因为 部署多个微服务时 ribbon 有重试机制，如果连接不上，会重试。重试时防止触发回退
-#ribbon:
-#    ReadTimeout: 1000
-#    ConnectTimeout: 1000
+ribbon:
+    ReadTimeout: 5000
+    ConnectTimeout: 1000
 #myRibbon:
 #  ribbon:
 #      NFLoadBalancerRuleClassName: my.consumer.config.MyIRule
