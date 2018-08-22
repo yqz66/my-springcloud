@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      profile: dev # 获取配置环境
+      name: dept-provider #
+      label: master
+      discovery:
+        service-id: config-server #配置中心名称

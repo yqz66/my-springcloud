@@ -1,34 +1,6 @@
 server:
   port: 8002
-spring:
-  application:
-    name: dept-provider
-  datasource:
-    username: root
-    password: admin
-    url: jdbc:mysql://localhost:3306/cloudDB01
-    driver-class-name: com.mysql.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    dbcp2:
-      min-idle: 5                                           # 数据库连接池的最小维持连接数
-      initial-size: 5                                       # 初始化连接数
-      max-total: 50                                          # 最大连接数
-      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
-
-mybatis:
-  type-aliases-package: my.common.entity
-  mapper-locations: mapper/*.xml
-  configuration:
-    map-underscore-to-camel-case: true # mybatis 自动映射 属性
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/ #注册到eureka 可以注册多个使用 "," 分割
-  instance:
-#    instance-id: 提供者 # Eureka 实例名称
-    ip-address: true # 是否在注册中心显示 ip 地址
-info:
-  app.name: my-spring-cloud
-  company.name: 时光
-  build.artifactId: $project.artifactId$ #通过插件从maven 配置中获取值(测试获取失败)
-  build.version: $project.version$

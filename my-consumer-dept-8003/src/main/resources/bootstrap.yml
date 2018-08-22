@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      name: dept-consumer
+      label: master
+      profile: dev
+      discovery:
+        service-id: config-server

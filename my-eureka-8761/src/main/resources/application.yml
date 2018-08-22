@@ -2,8 +2,10 @@ server:
   port: 8761
 spring:
   application:
-    name: eureka-service
+    name: eureka-server
 eureka:
   client:
-#    register-with-eureka: false # 是否向别的Eureka注册
+    register-with-eureka: false # 是否向Eureka注册
     fetch-registry: false #自己是注册中心，并不需要去检索服务
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/  如需配置多个Eureka 配置上多个url 以 , 号分割

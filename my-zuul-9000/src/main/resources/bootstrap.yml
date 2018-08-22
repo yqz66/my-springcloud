@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      profile: dev # 获取当前启动的配置环境
+      label: master # 分支
+      name: zuul-config #文件名称
+      discovery:
+        service-id: config-server # 服务名称

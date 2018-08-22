@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      label: master
+      name: dept-provider
+      profile: dev
+      discovery:
+        service-id: config-server
