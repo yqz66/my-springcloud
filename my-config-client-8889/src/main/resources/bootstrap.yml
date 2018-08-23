@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      name: my-config-client #需要获取的文件名, 不需要带后缀
+#      name: my-config-client #需要获取的文件名, 不需要带后缀(默认是 服务名称)
       profile: dev #需要的版本环境
       label: master #分支名称
       uri: http://localhost:8888

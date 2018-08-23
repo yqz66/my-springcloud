@@ -8,7 +8,27 @@ spring:
       server:
         git:
           uri: https://github.com/yqz66/my-springcloud-config.git
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+management:
+  security:
+    enabled: false # 关闭安全校验
+
+
+---
+# Config Server + bus + Rabbit MQ 后刷新配置方式
+# 使用post请求
+# http://localhost:8888/bus/refresh  所有的微服务重新刷新配置
+# http://localhost:8888/bus/refresh?destination=配置名称:端口 可以进行局部刷新 (spring.cloud.config.name:server.port)
+# http://localhost:8888/bus/refresh?destination=配置名称:**  当前配置名称下所有微服务重新刷新配置
+#
+#
+#
+#
